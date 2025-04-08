@@ -1,0 +1,242 @@
+// es ma quiz ha or different levels create key gay ha.
+#include <iostream>
+#include <cctype>  // for tolower
+using namespace std;
+
+// Function to display a question
+void displayQuestion(string question, string optionA, string optionB, string optionC, string optionD) {
+    cout << question << endl;
+    cout << "a) " << optionA << endl;
+    cout << "b) " << optionB << endl;
+    cout << "c) " << optionC << endl;
+    cout << "d) " << optionD << endl;
+}
+
+// Function to check if the answer is correct
+bool checkAnswer(char userAnswer, char correctAnswer) {
+    return tolower(userAnswer) == tolower(correctAnswer);
+}
+
+// Function to show score per level
+void showScore(int score, int total, int level) {
+    float percentage = (score * 100.0f) / total;
+
+    cout << "\n==============================" << endl;
+    cout << "\U0001F3AE Level " << level << " Completed!" << endl;
+    cout << "==============================" << endl;
+    cout << "✅ Score: " << score << " out of " << total << endl;
+    cout << "📊 Percentage: " << percentage << "%" << endl;
+
+    if (percentage == 100)
+        cout << "🏆 Perfect! You're a C++ Master at this level!" << endl;
+    else if (percentage >= 80)
+        cout << "👏 Excellent work!" << endl;
+    else if (percentage >= 50)
+        cout << "👍 Good effort!" << endl;
+    else
+        cout << "📘 Keep practicing this level!" << endl;
+}
+
+int main() {
+    string questions[] = {
+        "1. What is C++?", "2. What is 2 + 2?", "3. Who created C++?", "4. Which header file is required to use cout in C++?",
+        "5. What is the default return type of a function in C++ if not specified?", "6. Which operator is used to access members of a class in C++?",
+        "7. What does the keyword 'private' signify in C++?", "8. Which of the following is a valid data type in C++?",
+        "9. How do you initialize an array in C++?", "10. What is the purpose of the 'main' function in C++?",
+        "11. What is the size of int in C++ (typically)?", "12. Which symbol is used for comments in C++?",
+        "13. What is a pointer?", "14. What is the output of: cout << 5 / 2;", "15. What is a constructor?",
+        "16. Which keyword is used to create a constant in C++?", "17. Which loop is used to execute at least once?",
+        "18. What is the extension of C++ files?", "19. What does OOP stand for?", "20. What does 'new' keyword do?",
+        "21. Which of the following is a relational operator?", "22. What is the use of 'return' in C++?",
+        "23. Which function is used to read a line of text?", "24. What is an object in C++?",
+        "25. How many types of access specifiers are there?", "26. What is function overloading?",
+        "27. Which of these is a valid loop?", "28. What is the default value of a static int?",
+        "29. What is encapsulation?", "30. What is the size of a char data type in C++?" ,"31. Which feature allows reusing code in C++?",
+        "32. What is the use of 'this' pointer?",
+        "33. What is inheritance in C++?",
+        "34. What is the default constructor?",
+        "35. What is the output of: cout << true + true;",
+        "36. Which keyword is used to define templates?",
+        "37. What is a virtual function?",
+        "38. Which keyword stops the loop immediately?",
+        "39. What is dynamic memory allocation?",
+        "40. What is the output of sizeof(char)?",
+        "41. What is polymorphism in C++?",
+        "42. What is 'namespace' used for?",
+        "43. What does 'public' access specifier mean?",
+        "44. What is abstraction in OOP?",
+        "45. Which operator is overloaded for output?",
+        "46. What is a destructor?",
+        "47. Which STL container stores unique elements?",
+        "48. What is 'try-catch' used for?",
+        "49. What does '.at()' function do in vectors?",
+        "50. Which keyword is used to prevent inheritance?",// Add to questions[]
+        "51. Which keyword is used to define a class in C++?",
+        "52. What does 'cin' do in C++?",
+        "53. Which operator is used to allocate memory dynamically?",
+        "54. What is the output of: cout << (3 > 2);",
+        "55. Which one is a logical operator in C++?",
+        "56. What is the use of '#include'?",
+        "57. Which of the following is a character constant?",
+        "58. What is the maximum number of 'else if' in a C++ if-else chain?",
+        "59. What will be the output of: cout << \"Hello\" << endl;",
+        "60. What is a syntax error?","61. Which of these is a valid function declaration in C++?",
+        "62. What is the purpose of 'endl' in C++?",
+        "63. What is the output of: cout << 10 % 3;",
+        "64. Which is the correct syntax to declare a pointer?",
+        "65. What does 'sizeof()' return?",
+        "66. What is a reference variable in C++?",
+        "67. Which operator is used to compare two values?",
+        "68. What is recursion?",
+        "69. Which keyword is used to inherit a class?",
+        "70. What is the output of: cout << (5 == 5);"
+        
+    };
+
+    string optionsA[] = {"Scripting language", "3", "James Gosling", "iostream", "int", "->", "Access modifier", "int", "int arr[5] = {1, 2, 3, 4, 5};", "Start of the program",
+                         "2 bytes", "//", "Variable", "2", "A method", "let", "for", ".cp", "Object Oriented Project", "Deletes memory",
+                         "=", "Exit a loop", "scanf()", "A class", "1", "Functions with same name", "loop()", "1", "Linking functions", "4 bytes", "Polymorphism", "To refer parent object", "Hiding data", "Parameterized constructor", "2", "type", "Non-overridable function", "return", "Static memory", "2",
+                         "Runtime decision making", "To avoid naming conflict", "Only class access", "Showing only essentials", ">>", "Cleans memory", "vector", "Loop handling", "Adds element", "hide","classname",
+"Displays output",
+"*",
+"true",
+"==",
+"To declare variable",
+"'char'",
+"5",
+"Hello",
+"An error that occurs during runtime","void function {}",
+"To end the program",
+"1",
+"int *ptr;",
+"Memory location",
+"Another name for a value",
+"!=",
+"A loop calling break",
+"extends",
+"0"};
+
+    string optionsB[] = {"markup lanuage", "4", "Bjarne Stroustrup", "stdio.h", "void", ".", "Marks members as private", "char", "int arr[5];", "Main entry point",
+                         "4 bytes", "##", "A variable storing address", "2.5", "A class", "const", "do-while", ".cpp", "Object Oriented Programming", "Allocates memory",
+                         "==", "Return from function", "getline()", "An instance of class", "2", "Function with different name", "do-then", "0", "Hiding data", "1 byte","Inheritance", "To refer current object", "Using base class features", "Auto constructor", "1", "template", "Function redefinition in derived", "break", "Heap allocation", "1",
+        "Function overloading", "Manage variables", "Anywhere access", "Hiding internal details", "<<", "Cleans resources", "set", "Exception handling", "Access element safely", "final",
+    "class",
+"Takes input",
+"&",
+"1",
+"&&",
+"To include libraries",
+"char",
+"Unlimited",
+"Hello and newline",
+"An error in code structure","int function()",
+"To insert a new line",
+"3",
+"int ptr*;",
+"Size in bytes",
+"Pointer to a function",
+"==",
+"A function calling itself",
+"inherit",
+"1"};
+
+
+    string optionsC[] = {"High level language", "5", "Guido van Rossum", "conio.h", "float", ".", "Marks members as private", "string", "int arr[] = {1, 2, 3};", "End of the program",
+                         "8 bytes", "", "A constant", "2.0", "A loop", "define", "while", ".cxx", "Optional Object Parsing", "Accesses memory",
+                         "!=", "Pass value", "readline()", "A pointer", "3", "Class within class", "when()", "-1", "Extending class", "2 bytes","Encapsulation", "To reference functions", "Deleting base object", "Default function", "true", "define", "Compile-time function", "stop", "Dynamic linking", "4",
+        "Encapsulation", "Define scope", "No access", "Deleting object", "==", "Starts object", "map", "Memory management", "Returns last item", "static",
+    "struct",
+"Runs loop",
+"#",
+"0",
+"||",
+"To define main",
+"\"char\"",
+"Depends on compiler",
+"Hello\\n",
+"An error in logic","function int()",
+"To pause execution",
+"2",
+"ptr int*;",
+"Data type",
+"Array type",
+"=",
+"A reference to another file",
+"super",
+"true"};
+
+    string optionsD[] = {"low levellanuage", "6", "Dennis Ritchie", "iostream.h", "double", ":", "Global access", "float", "int[5] = {1, 2, 3, 4, 5};", "Function execution",
+                         "Depends on compiler", "!!", "None", "Error", "A macro", "perm", "loop", ".c", "Object Oriented Preview", "Creates pointer",
+                         "<=", "Break loop", "read()", "A method", "4", "Function with same parameters", "repeat()", "Garbage", "Calling object", "Depends", "Templates", "To destroy object", "Creating multiple classes", "Copy constructor", "0", "macro", "Destructor", "exit", "Global memory", "Depends",
+                         "None", "Scope hiding", "Protected access", "Inheritance", "<", "Deletes variables", "array", "Loop break", "Sets value", "inherit",
+                    "object",
+"Defines function",
+"%",
+"false",
+"=",
+"To terminate loop",
+"char[]",
+"1",
+"Newline Hello",
+"A run-time crash" ,"function {}",
+"To skip line",
+"5",
+"*int ptr;",
+"Function name",
+"Constant pointer",
+"<=",
+"A class creating objects",
+"class",
+"false"};
+                 
+
+    char correctAnswers[] = {
+        'c', 'b', 'b', 'a', 'b', 'a', 'b', 'a', 'c', 'b',
+        'b', 'a', 'b', 'a', 'b', 'b', 'b', 'b', 'b', 'b',
+        'b', 'b', 'c', 'b', 'c', 'a', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'a', 'b', 'b', 'b', 'b', 'b',
+        'a', 'a', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b','b', 'b', 'a', 'b', 'b', 'b', 'a', 'b', 'b', 'b','b', 'b', 'a', 'a', 'b', 'a', 'b', 'b', 'b', 'b'
+
+    };
+
+    int levelLimits[] = {10, 10, 10,20,29}; // 3 levels of 10 questions each
+    int startIndex = 0;
+    int totalScore = 0;
+
+    for (int level = 0; level < 6; level++) {
+        cout << "\n==============================" << endl;
+        cout << "Starting Level " << (level + 1) << endl;
+        cout << "==============================" << endl;
+
+        int levelScore = 0;
+        int questionsThisLevel = levelLimits[level];
+
+        for (int i = startIndex; i < startIndex + questionsThisLevel; i++) {
+            cout << "\n------------------------------\n";
+            displayQuestion(questions[i], optionsA[i], optionsB[i], optionsC[i], optionsD[i]);
+            cout << "Your answer (a/b/c/d): ";
+            char userAnswer;
+            cin >> userAnswer;
+
+            if (checkAnswer(userAnswer, correctAnswers[i])) {
+                cout << "✅ Correct!" << endl;
+                levelScore++;
+            } else {
+                cout << "❌ Incorrect! The correct answer was: " << correctAnswers[i] << endl;
+            }
+        }
+
+        totalScore += levelScore;
+        showScore(levelScore, questionsThisLevel, level + 1);
+
+        float levelPercentage = (levelScore * 100.0f) / questionsThisLevel;
+        if (levelPercentage < 50) {
+            cout << "\n❌ You didn't pass Level " << (level + 1) << ". Try again later." << endl;
+            break;
+        }
+
+        startIndex += questionsThisLevel;
+    }
+
+    cout << "\n Quiz Complete! Your Total Score: " << totalScore << endl;
+    return 0;
+}
