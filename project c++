@@ -1,6 +1,6 @@
 // es ma quiz ha or different levels create key gay ha.
 #include <iostream>
-#include <cctype>  // for tolower
+#include <cctype> 
 using namespace std;
 // Function to display a question
 void displayQuestion(string question, string optionA, string optionB, string optionC, string optionD) {
