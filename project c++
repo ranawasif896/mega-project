@@ -3,6 +3,10 @@
 #include <cctype>  // for tolower
 using namespace std;
 
+
+
+
+
 // Function to display a question
 void displayQuestion(string question, string optionA, string optionB, string optionC, string optionD) {
     cout << question << endl;
