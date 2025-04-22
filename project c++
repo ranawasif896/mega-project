@@ -23,17 +23,17 @@ void showScore(int score, int total, int level) {
     cout << "\n==============================" << endl;
     cout << "\U0001F3AE Level " << level << " Completed!" << endl;
     cout << "==============================" << endl;
-    cout << "✅ Score: " << score << " out of " << total << endl;
-    cout << "📊 Percentage: " << percentage << "%" << endl;
+    cout << " Score: " << score << " out of " << total << endl;
+    cout << " Percentage: " << percentage << "%" << endl;
 
     if (percentage == 100)
-        cout << "🏆 Perfect! You're a C++ Master at this level!" << endl;
+        cout << "Perfect! You're a C++ Master at this level!" << endl;
     else if (percentage >= 80)
-        cout << "👏 Excellent work!" << endl;
+        cout << " Excellent work!" << endl;
     else if (percentage >= 50)
-        cout << "👍 Good effort!" << endl;
+        cout << "Good effort!" << endl;
     else
-        cout << "📘 Keep practicing this level!" << endl;
+        cout << "Keep practicing this level!" << endl;
 }
 
 int main() {
