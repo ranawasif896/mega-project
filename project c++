@@ -217,10 +217,10 @@ int main() {
             cin >> userAnswer;
 
             if (checkAnswer(userAnswer, correctAnswers[i])) {
-                cout << "✅ Correct!" << endl;
+                cout << " Correct!" << endl;
                 levelScore++;
             } else {
-                cout << "❌ Incorrect! The correct answer was: " << correctAnswers[i] << endl;
+                cout << " Incorrect! The correct answer was: " << correctAnswers[i] << endl;
             }
         }
 
@@ -229,7 +229,7 @@ int main() {
 
         float levelPercentage = (levelScore * 100.0f) / questionsThisLevel;
         if (levelPercentage < 50) {
-            cout << "\n❌ You didn't pass Level " << (level + 1) << ". Try again later." << endl;
+            cout << " You didn't pass Level " << (level + 1) << ". Try again later." << endl;
             break;
         }
 
